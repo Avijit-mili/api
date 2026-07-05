@@ -12,14 +12,14 @@ if ($inputKey === $mySecretKey) {
     
     $responseData = [
         "success" => true,
-        "message" => "تم التحقق من الجهاز، الكود لا يزال صالحاً",
-        "seller_username" => "super_venom_admin",
+        "message" => "STATUS ACTIVE",
+        "seller_username" => "@Zoroo_God",
         "game_name" => "8bp",
         "total_hours" => 24,
         "max_devices" => 1000,
         "time_left_seconds" => 79508,
         "is_expired" => false,
-        "expiry" => "2026-07-06 13:18:06",
+        "expiry" => "2026-09-06 13:18:06",
         "activated_at" => "2026-07-05 13:18:06",
         "time_left_hours" => 22.1,
         "used_devices" => 17,
