@@ -5,7 +5,7 @@ header("Content-Type: application/json; charset=utf-8");
 $inputKey = $_GET['key'] ?? '';
 
 // ২. আপনার নিজের তৈরি করা সিক্রেট Key (এটি আপনি অ্যাপে বা লিংকে ব্যবহার করবেন)
-$mySecretKey = "venonmengine"; 
+$mySecretKey = "Zoroo-On-TOP"; 
 
 // ৩. যাচাই করার লজিক
 if ($inputKey === $mySecretKey) {
