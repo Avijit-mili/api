@@ -1,4 +1,6 @@
 services:
   - type: web
+    name: venon-engine-38g7
     runtime: php
-    
+    buildCommand: composer install
+    startCommand: apache2-foreground
