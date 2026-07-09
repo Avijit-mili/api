@@ -15,7 +15,7 @@ if (!empty($inputKey) && $inputKey === $mySecretKey) {
     $responseData = [
         "status" => "success", 
         "data" => [            
-            "expiry_date" => "2026-09-06 13:18:06", 
+            "expiry_date" => "2026-09-10 13:18:06", 
             "auth_token" => "ZorooAuthToken778899"   
         ],
         "success" => true,
