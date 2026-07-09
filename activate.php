@@ -1,16 +1,23 @@
 <?php
 header("Content-Type: application/json; charset=utf-8");
 
-// ১. অ্যাপ থেকে পাঠানো কী (Key) রিসিভ করা
-$inputKey = $_GET['key'] ?? '';
+// ১. C++ অ্যাপ থেকে পাঠানো কী (Key) এবং HWID রিসিভ করা
+$inputKey = isset($_POST['license_key']) ? $_POST['license_key'] : ($_GET['key'] ?? '');
+$hwid = $_POST['hwid'] ?? '';
 
-// ২. আপনার নিজের তৈরি করা সিক্রেট Key (এটি আপনি অ্যাপে বা লিংকে ব্যবহার করবেন)
+// ২. আপনার নিজের তৈরি করা সিক্রেট Key
 $mySecretKey = "Zoroo-On-TOP"; 
 
 // ৩. যাচাই করার লজিক
-if ($inputKey === $mySecretKey) {
+if (!empty($inputKey) && $inputKey === $mySecretKey) {
     
+    // C++ কোড এবং আপনার অ্যাপের প্রয়োজনীয় সমস্ত ডাটা
     $responseData = [
+        "status" => "success", 
+        "data" => [            
+            "expiry_date" => "2026-09-06 13:18:06", 
+            "auth_token" => "ZorooAuthToken778899"   
+        ],
         "success" => true,
         "message" => "STATUS ACTIVE",
         "seller_username" => "@Zoroo_God",
@@ -19,8 +26,6 @@ if ($inputKey === $mySecretKey) {
         "max_devices" => 1000,
         "time_left_seconds" => 79508,
         "is_expired" => false,
-        "expiry" => "2026-09-06 13:18:06",
-        "activated_at" => "2026-07-05 13:18:06",
         "time_left_hours" => 22.1,
         "used_devices" => 17,
         "devices_list" => [
@@ -44,15 +49,15 @@ if ($inputKey === $mySecretKey) {
         ]
     ];
     
-    echo json_encode($responseData, JSON_UNESCAPED_UNICODE);
+    echo json_encode($responseData, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
 
 } else {
     
     // ভুল বা ফাঁকা কী দিলে এই এরর দেখাবে
     echo json_encode([
-        "success" => false,
+        "status" => "error",
         "message" => "Invalid or Expired Key!"
-    ]);
+    ], JSON_PRETTY_PRINT);
     
 }
 ?>
